@@ -23,6 +23,7 @@ const resolvers = {
     clientes: () => Clientes.lista(),
     cliente: (root, {id}) => Clientes.buscaPorId(id),
     pets: () => Pets.lista(),
+    pet: (root, {id}) => Pets.buscaPorId(id),
   },
   Mutation: {
     adicionarCliente: (root, params) => Clientes.adiciona(params),
