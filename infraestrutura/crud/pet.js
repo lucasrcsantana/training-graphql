@@ -61,7 +61,7 @@ class Pet {
   deleta(id) {
     const sql = `DELETE FROM Pets WHERE id=${id}`
 
-    executaQuery(sql)
+    return executaQuery(sql).then(() => id)
   }
 }
 
