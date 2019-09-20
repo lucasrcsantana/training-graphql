@@ -35,6 +35,13 @@ type Mutation {
     deletarPet(
         id: ID!
     ): ID!
+    atualizarPet(
+        id: ID!,
+        nome: String,
+        donoId: Int,
+        tipo: String,
+        observacoes: String
+    ): Pet!
 }
 
 type Query {
