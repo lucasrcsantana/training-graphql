@@ -10,11 +10,16 @@ type Mutation {
         nome: String!,
         preco: Float!,
         descricao: String
-        ): Servico!
+    ): Servico!,
+    atualizarServico(
+        id: ID!,
+        nome: String,
+        preco: Float,
+        descricao: String
+    ): Servico!
 }
 
 type Query {
+    servico(id: ID!): Servico!,
     servicos: [Servico!]!,
-    servico(id: ID!): Servico!
-
 }

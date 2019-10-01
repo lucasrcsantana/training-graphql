@@ -10,7 +10,7 @@ class Servico {
   buscaPorId(id) {
     const sql = `SELECT * FROM Servicos WHERE id=${parseInt(id)}`
 
-    executaQuery(sql)
+    return executaQuery(sql)
   }
 
   adiciona(item) {
@@ -25,17 +25,17 @@ class Servico {
     }))
   }
 
-  atualiza(novoItem, id) {
-    const { nome, preco, descricao } = novoItem
+  atualiza(novoItem) {
+    const { id, nome, preco, descricao } = novoItem
     const sql = `UPDATE Servicos SET nome='${nome}', Preco=${preco}, Descricao='${descricao}' WHERE id=${id}`
 
-    executaQuery(sql)
+    return executaQuery(sql).then(() => novoItem)
   }
 
   deleta(id) {
     const sql = `DELETE FROM Servicos WHERE id=${id}`
 
-    executaQuery(sql)
+    return executaQuery(sql).then(() => id)
   }
 }
 
