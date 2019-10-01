@@ -1,0 +1,31 @@
+type Atendimento {
+    id: ID!,
+    clienteId: Int!,
+    petId: Int!,
+    servicoId: Int!,
+    data: String!,
+    status: String,
+    observacoes: String
+}
+
+type Query {
+    atendimento:
+    atendimentos:
+}
+
+type Atendimento {
+    adicionarAtendimento(
+        clienteId: Int!,
+        petId: Int!,
+        servicoId: Int!,
+        data: String!,
+        status: String,
+        observacoes: String
+    ): Atendimento!,
+    deletarAtendimento(
+
+    ): ID!,
+    atualizarAtendimento(
+
+    ): Atendimento!,
+}
