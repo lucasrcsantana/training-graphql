@@ -10,7 +10,8 @@ class Servico {
   buscaPorId(id) {
     const sql = `SELECT * FROM Servicos WHERE id=${parseInt(id)}`
 
-    return executaQuery(sql)
+    return executaQuery(sql).then(servicos =>
+      servicos[0])
   }
 
   adiciona(item) {
