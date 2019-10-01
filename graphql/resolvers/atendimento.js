@@ -9,8 +9,8 @@ const resolvers = {
     },
     Mutation = {
         adicionarAtendimento: (root, params) => Atendimentos.adiciona(params),
-        deletarAtendimento: (root, {id}) => Atendimentos.deleta(id),
         atualizarAtendimento: (root, params) => Atendimentos.atualiza(params),
+        deletarAtendimento: (root, {id}) => Atendimentos.deleta(id),
     }
 }
 

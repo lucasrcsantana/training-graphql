@@ -9,8 +9,10 @@ type Atendimento {
 }
 
 type Query {
-    atendimento:
-    atendimentos:
+    atendimento(
+        id: ID!
+    ): Atendimento!,
+    atendimentos: [Atendimento!]!
 }
 
 type Atendimento {
@@ -23,9 +25,15 @@ type Atendimento {
         observacoes: String
     ): Atendimento!,
     deletarAtendimento(
-
+        id: ID!
     ): ID!,
     atualizarAtendimento(
-
+        id: ID!,
+        clienteId: Int,
+        petId: Int,
+        servicoId: Int,
+        data: String,
+        status: String,
+        observacoes: String
     ): Atendimento!,
 }
