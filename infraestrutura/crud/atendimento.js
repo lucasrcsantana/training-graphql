@@ -2,9 +2,37 @@ const executaQuery = require('../database/queries')
 
 class Atendimento {
   lista() {
-    const sql = 'SELECT * FROM Atendimentos'
+    const sql = 'SELECT Atendimentos.id, Atendimentos.data, Atendimento.status, Atendimento.observacoes, Pets.id as petId, Pets.nome as petNome, Pets.tipo as petTipo, Pets.Observacoes as petObservacoes Clientes.id as clienteId, Clientes.nome as clienteNome, Clientes.cpf as clienteCpf Servicos.id as servicoId, Servicos.nome as serviconome, Servicos.preco as servicoPreco, Servicos.descricao as servicoDescricao FROM Atendimentos INNET JOIN Cliente INNER JOIN Pets INNET JOIN Servicos WHERE Atendimentos.clienteId = Clientes.id AND Atendimentos.petId = Pets.id AND Atendimentos.servicoId = Servicos.id'
 
-    return executaQuery(sql)
+
+    return executaQuery(sql).then(atendimentos => {
+
+
+      return atendimentos.map(atendimento => ({
+        id: atendimento.id,
+        data: atendimento.data,
+        status: atendimento.status,
+        observacoes: atendimento.observacoes,
+        cliente: {
+          id: atendimento.clienteId,
+          nome: atendimento.clienteNome,
+          cpf: atendimento.clienteCpf
+        },
+        pet: {
+          id: atendimento.petId,
+          nome: atendimento.petNome,
+          tipo: atendimento.petTipo,
+          observacoes: atendimento.petObservacoes
+        },
+        servico: {
+          id: atendimento.servicoId,
+          nome: atendimento.servicoNome,
+          preco: atendimento.servicoPreco,
+          observacoes: atendimento.servicoObservacoes
+        }
+      }))
+      
+    })
   }
 
   buscaPorId(id) {
