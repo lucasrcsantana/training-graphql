@@ -4,7 +4,7 @@ class Servico {
   lista() {
     const sql = 'SELECT * FROM Servicos'
 
-    executaQuery(sql)
+    return executaQuery(sql)
   }
 
   buscaPorId(id) {
