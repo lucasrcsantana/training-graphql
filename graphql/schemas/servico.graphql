@@ -17,6 +17,9 @@ type Mutation {
         preco: Float,
         descricao: String
     ): Servico!
+    deletarServico(
+        id: ID!
+    ): ID!
 }
 
 type Query {
