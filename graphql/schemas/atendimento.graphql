@@ -20,7 +20,6 @@ type Atendimento {
         clienteId: Int!,
         petId: Int!,
         servicoId: Int!,
-        data: String!,
         status: String,
         observacoes: String
     ): Atendimento!,
@@ -32,7 +31,6 @@ type Atendimento {
         clienteId: Int,
         petId: Int,
         servicoId: Int,
-        data: String,
         status: String,
         observacoes: String
     ): Atendimento!,
